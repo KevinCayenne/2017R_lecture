@@ -82,3 +82,38 @@ for(i in mod){
     print(apply(x,i, argg, na.rm = T))
   }
 }
+
+##### Ex S5: (1) 將課程網站上的seizure.csv裡的trt, age, ltime當成解釋變數，y當成反應變數，求線性迴歸係數值，並需與R的內建函數lm結果比對。#####
+
+setwd("c:/Users/acer/Desktop/R統計HW/")
+sei <- read.csv("seizure.csv")
+Seizure1 <- read.csv('seizure.csv')
+
+lm.obj <- lm(Seizure1$y ~ Seizure1$trt + Seizure1$age + Seizure1$ltime)
+
+regtry <- function(y, x){
+  b.one <- (sum(y*x)-(sum(x)*sum(y)/length(x)))/(sum(x^2)-(sum(x)^2/length(x)))
+  b.zero <- mean(y) - b.one*mean(x)
+  result <- data.frame("Intercept" = b.zero, "b1" = b.one)
+  return(result)
+}
+
+regtry(table$y,table$ltime)
+
+##### Ex S5: (2) 承上小題，請自行計算出殘差，並需與lm計算的殘差作比對。
+
+##### Ex S7: 請用矩陣搭配solve指令回答。####
+
+A <- matrix(c(2,-1,1,4,-1,3,2,-3,2),3,3, byrow = T)
+b <- c(3,2,1)
+solve(A,b)
+  
+##### Ex S8: 請用矩陣搭配solve指令回答。####
+
+A <- matrix(c(2,-1,1,4,-4,3,2,-3,2),3,3, byrow = T)
+b <- c(3,2,1)
+solve(A,b)
+# A:此題無解 Error in solve.default(A, b) : Lapack routine dgesv: system is exactly singular: U[3,3] = 0
+
+
+
