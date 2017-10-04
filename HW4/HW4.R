@@ -116,4 +116,34 @@ solve(A,b)
 # A:此題無解 Error in solve.default(A, b) : Lapack routine dgesv: system is exactly singular: U[3,3] = 0
 
 
+##### Ex S9: (1)	請使用ceiba課程網站上的seizure.csv裡的y，以R指令來計算 ####
+
+setwd("c:/Users/acer/Desktop/R統計HW/")
+sei <- read.csv("seizure.csv")
+Seizure1 <- read.csv('seizure.csv')
+
+SY <- matrix(Seizure1$y,length(Seizure1$y),1)
+tY <- t(SY)
+n <- length(Seizure1$y)
+
+I <- diag(n)
+J <- matrix(1,n,n)
+A <- (I-(1/n)*J)
+
+SST <- tY%*%A%*%SY
+SST
+
+##### Ex S9: (2)	(紙筆計算) 與統計學上哪一個常用的量數有關？關係為何？
+
+# 在這邊的 y'Ay 就是ANOVA中的SST(總平方和) 但拆解來看這邊的A矩陣是由單位矩陣I 減去 (1/n) * J(1矩陣)而得來
+
+##### Ex S9: (3)	以R指令得到該統計學上量數，並與(1)比對。
+
+aov.Y <- aov(y~ltime, data=Seizure1)
+S.aov.Y <- summary(aov.Y)
+
+SST
+sum(S.aov.Y[[1]][2])
+
+
 
