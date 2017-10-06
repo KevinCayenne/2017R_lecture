@@ -144,6 +144,3 @@ S.aov.Y <- summary(aov.Y)
 
 SST
 sum(S.aov.Y[[1]][2])
-
-
-
