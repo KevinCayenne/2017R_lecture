@@ -98,6 +98,14 @@ b
 
 ##### Ex S5: (2) 承上小題，請自行計算出殘差，並需與lm計算的殘差作比對。
 
+n <- length(Seizure1$y)
+SH <- SX%*%solve(t(SX)%*%SX)%*%t(SX) 
+I <- diag(n)
+Se <- (I-SH)%*%SY
+
+head(Se)
+head(lm.obj$residuals)
+
 ##### Ex S7: 請用矩陣搭配solve指令回答。####
 
 A <- matrix(c(2,-1,1,4,-1,3,2,-3,2),3,3, byrow = T)
@@ -109,8 +117,8 @@ solve(A,b)
 A <- matrix(c(2,-1,1,4,-4,3,2,-3,2),3,3, byrow = T)
 b <- c(3,2,1)
 solve(A,b)
-# A:此題無解 Error in solve.default(A, b) : Lapack routine dgesv: system is exactly singular: U[3,3] = 0
 
+# A:此題無解 Error in solve.default(A, b) : Lapack routine dgesv: system is exactly singular: U[3,3] = 0
 
 ##### Ex S9: (1)	請使用ceiba課程網站上的seizure.csv裡的y，以R指令來計算 
 ####
