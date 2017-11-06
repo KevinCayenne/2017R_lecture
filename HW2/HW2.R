@@ -1,6 +1,6 @@
 ## 當母體來自於自由度1的卡方分布時，該如何更改程式以示範中央極限定理？
 
-par(mfrow = c(3,2))
+par(mfrow = c(1,1))
 CLT <- function(n){
   N <- 10000
   score <- rchisq(N,1)
