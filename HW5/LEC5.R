@@ -38,13 +38,70 @@ plot(p,fp)
 
 ##############
 
+
 ftn7 <- function(p) {
-  fp <- (-0.025)
+  fp <- (-0.975)
   dfp <- 0
-  for(k in 0:3){
+  for(k in 3:20){
     fp <- fp+choose(20,k)*(p^k)*((1-p)^(20-k))
     dfp <- dfp+choose(20,k)*((k*p^(k-1))*((1-p)^(20-k))-(p^k)*((20-k)*(1-p)^(19-k)))
   }
   return(c(fp, dfp))
 }
 newtonraphson(ftn7, 0.1, 1e-06)
+
+
+p <- seq(0,1,0.01)
+fp <- (0.025)
+for(k in 0:3){
+  fp <- fp+choose(20,k)*(p^k)*((1-p)^(20-k))
+}
+plot(p,fp)       
+
+
+#######
+
+p <- seq(0,1,0.01)
+fp <- (-0.975)
+for(k in 0:2){
+  fp <- fp+choose(20,k)*(p^k)*((1-p)^(20-k))
+}
+plot(p,fp)                                                     
+
+
+ftn7 <- function(p) {
+  fp <- (-0.975)
+  dfp <- 0
+  for(k in 0:2){
+    fp <- fp+choose(20,k)*(p^k)*((1-p)^(20-k))
+    dfp <- dfp+choose(20,k)*((k*p^(k-1))*((1-p)^(20-k))-(p^k)*((20-k)*(1-p)^(19-k)))
+  }                                                      
+  return(c(fp, dfp))
+}
+newtonraphson(ftn7, 0.1, 1e-06)
+
+######
+
+p <- seq(0,1,0.01)
+fp <- (-0.025)
+for(k in 0:3){
+  fp <- fp+choose(20,k)*(p^k)*((1-p)^(20-k))
+}
+plot(p,fp)                                                     
+
+
+ftn8 <- function(p) {
+  fp <- (-0.025)
+  dfp <- 0
+  for(k in 0:3){
+    fp <- fp+choose(20,k)*(p^k)*((1-p)^(20-k))
+    dfp <- dfp+choose(20,k)*((k*p^(k-1))*((1-p)^(20-k))-(p^k)*((20-k)*(1-p)^(19-k)))
+  }                                                      
+  return(c(fp, dfp))
+}
+newtonraphson(ftn8, 0.2, 1e-06)
+
+phat <- 3/20
+phat-qnorm(0.975)*sqrt(phat*(1-phat)/20)
+phat+qnorm(0.975)*sqrt(phat*(1-phat)/20)
+
