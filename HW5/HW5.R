@@ -53,8 +53,8 @@ newtonraphson(ftn8, 0.2, 1e-06)
 ## (2)	請以中央極限定理求本題的95% confidence interval，並比較其與(1)小題結果。
 
 phat <- 20/100
-phat-qnorm(0.975)*sqrt(phat*(1-phat)/20)
-phat+qnorm(0.975)*sqrt(phat*(1-phat)/20)
+phat-qnorm(0.975)*sqrt(phat*(1-phat)/100)
+phat+qnorm(0.975)*sqrt(phat*(1-phat)/100)
 
 ## (3)	請以中央極限定理求練習17的95% confidence interval，並比較其與95% exact confidence interval，哪一方的結果較為可信？
 
