@@ -1,15 +1,17 @@
 ---
 title: "R Notebook"
 output:
-  word_document: default
-  html_notebook: default
   html_document: default
+  html_notebook: default
+  word_document: default
 ---
 
-```{r}
+```{r setup}
 library(knitr)
-knitr::opts_knit$set(root.dir = normalizePath("C:/Users/acer/Desktop/R統計HW/"))
+knitr::opts_knit$set(root.dir = normalizePath("C:/Users/acer/Desktop/R統計HW"))
+setwd("C:/Users/acer/Desktop/R統計HW")
 getwd()
+
 seizure <- read.csv("seizure.csv")
 
 newton <- function(f3, x0, tol = 1e-9, n.max = 100) {
@@ -29,8 +31,6 @@ newton <- function(f3, x0, tol = 1e-9, n.max = 100) {
 }
 
 f6 <- function(betacoef) {
-
-  
   Y <- seizure$y                                                                             
   X <- cbind(rep(1,length(Y)),seizure$trt,seizure$age)
   u <- exp(X %*% betacoef) * seizure$ltime
