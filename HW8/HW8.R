@@ -1,4 +1,4 @@
-setwd("c:/Users/acer/Desktop/R統計HW")
+setwd("c:/Users/acer/Desktop/R統計HW/HW8/")
 
 newton <- function(f3, x0, tol = 1e-9, n.max = 100) {
   x <- x0
@@ -15,7 +15,7 @@ newton <- function(f3, x0, tol = 1e-9, n.max = 100) {
     return(x)
   }
 }
-
+seizure <- read.csv("seizure.csv")
 f6 <- function(betacoef) {
   seizure <- read.csv("seizure.csv")
   
