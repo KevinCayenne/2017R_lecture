@@ -26,7 +26,7 @@ for(betaloop in 1:length(betagpa)){
     }
     
     pvalueglm[i] <- summary(glm(Y~gpa+gre,family=binomial))$coef[2,4]
-    
+    £x
     ### Permutation
     n.per <- 1000   # number of permutation = 1,000
     pvalue.per <- c()
